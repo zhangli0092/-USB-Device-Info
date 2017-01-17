@@ -1,4 +1,4 @@
-package aws.apps.usbDeviceEnumerator.ui.usbinfo;
+package aws.apps.usbDeviceEnumerator.ui.usbinfo.common;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
@@ -7,13 +7,15 @@ import aws.apps.usbDeviceEnumerator.data.DataProviderCompanyInfo;
 import aws.apps.usbDeviceEnumerator.data.DataProviderCompanyLogo;
 import aws.apps.usbDeviceEnumerator.data.DataProviderUsbInfo;
 
-/*package*/ class DataFetcher {
+public class DataFetcher {
 
     private final DataProviderCompanyInfo dbComp;
     private final DataProviderUsbInfo dbUsb;
     private final DataProviderCompanyLogo zipComp;
 
-    public DataFetcher(DataProviderCompanyInfo dbComp, DataProviderUsbInfo dbUsb, DataProviderCompanyLogo zipComp) {
+    public DataFetcher(DataProviderCompanyInfo dbComp,
+                       DataProviderUsbInfo dbUsb,
+                       DataProviderCompanyLogo zipComp) {
         this.dbComp = dbComp;
         this.dbUsb = dbUsb;
         this.zipComp = zipComp;

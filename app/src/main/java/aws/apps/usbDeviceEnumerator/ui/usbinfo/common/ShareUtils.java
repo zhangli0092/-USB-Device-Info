@@ -1,4 +1,4 @@
-package aws.apps.usbDeviceEnumerator.ui.usbinfo;
+package aws.apps.usbDeviceEnumerator.ui.usbinfo.common;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -29,7 +29,16 @@ import aws.apps.usbDeviceEnumerator.R;
         ActivityCompat.startActivity(activity, intent, null);
     }
 
-    public static String tableToString(TableLayout t) {
+    public static String getSharePayload(final InfoViewHolder holder) {
+        final StringBuilder sb = new StringBuilder();
+        sb.append(ShareUtils.tableToString(holder.getHeaderTable()));
+        sb.append(ShareUtils.tableToString(holder.getTopTable()));
+        sb.append('\n');
+        sb.append(ShareUtils.tableToString(holder.getBottomTable()));
+        return sb.toString();
+    }
+
+    private static String tableToString(TableLayout t) {
         StringBuilder sb = new StringBuilder();
         if (t != null) {
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package aws.apps.usbDeviceEnumerator.ui.usbinfo;
+package aws.apps.usbDeviceEnumerator.ui.usbinfo.common;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -23,7 +23,7 @@ import android.view.MenuItem;
 
 import aws.apps.usbDeviceEnumerator.R;
 
-/*package*/ abstract class BaseInfoFragment extends Fragment {
+public abstract class BaseInfoFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle saved) {
@@ -41,14 +41,15 @@ import aws.apps.usbDeviceEnumerator.R;
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_export:
+                final String payload = ShareUtils.getSharePayload(getViewHolder());
                 ShareUtils.share(
                         getActivity(),
                         getString(R.string.app_name),
-                        getSharePayload());
+                        payload);
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public abstract String getSharePayload();
+    public abstract InfoViewHolder getViewHolder();
 }
